@@ -93,12 +93,10 @@
             (.setUsername           (:username m))))
 
 
-
 (defn as-source-instance [project path]
-      (binding [project project]
-               (if (coll? path)
-                 (let [[src dest] (eval path)])
-                 (source (file (:root project) (eval path))))))
+  (if (coll? path)
+    (let [[src dest] (eval path)])
+    (source (file (:root project) (eval path)))))
 
 (defn update-sources
       "Create java source instances from source entries"
