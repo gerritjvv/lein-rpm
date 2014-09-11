@@ -92,11 +92,7 @@
             (.setSources            (:sources m))
             (.setUsername           (:username m))))
 
-(declare ^:dynamic project)
 
-(defn eval2 [project s]
-      (binding [project project]
-               (eval s)))
 
 (defn as-source-instance [project path]
       (binding [project project]
@@ -169,8 +165,7 @@
       ([project] (fatrpm project true))
       ([project uberjar?]
        (reset project)
-       ;(when uberjar? (uberjar project))
+       (when uberjar? (uberjar project))
        (make-rpm project)
-       ;(extract-rpm project)
-       ;(cleanup project)
-       ))
+       (extract-rpm project)
+       (cleanup project)))
