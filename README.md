@@ -84,7 +84,14 @@ E.g:
 vagrant init chef/centos-7.1; vagrant up --provider virtualbox
 ```
 
-Add the bootstrap.sh and provisioning to the vagrant file
+Add the following to the vagrant file
+
+```
+config.vm.provision :shell, path: "bootstrap.sh"
+config.vm.synced_folder "~/.m2", "/home/vagrant/.m2", disabled: false
+```
+
+The bootstrap.sh file is:
 
 ```
 #!/usr/bin/env bash
