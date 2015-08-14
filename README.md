@@ -83,3 +83,18 @@ E.g:
 ```
 vagrant init chef/centos-7.1; vagrant up --provider virtualbox
 ```
+
+Add the bootstrap.sh and provisioning to the vagrant file
+
+```
+#!/usr/bin/env bash
+
+yum install -y wget
+
+wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+
+
+sudo mv ./lein /usr/bin/
+
+sudo chmod +x /usr/bin/lein
+```
