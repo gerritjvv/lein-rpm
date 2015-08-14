@@ -78,17 +78,8 @@ note that any mappings not found will be flagged as an error and the build will 
 
 You will need to use https://www.vagrantup.com:
 
-An example Vagrantfile to do this is:
+E.g:
 
 ```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos"
-  config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box"
-end
+vagrant init chef/centos-7.1; vagrant up --provider virtualbox
 ```
